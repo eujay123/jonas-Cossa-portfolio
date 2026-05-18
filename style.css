@@ -309,11 +309,23 @@ h1, h2, h3, h4 {
     border: 1px solid var(--border-color);
     color: var(--text-secondary);
     transition: var(--transition-smooth);
+    overflow: hidden; /* Ensure circular crop */
 }
 
-.social-link i {
+.social-link i,
+.social-icon-img {
     width: 20px;
     height: 20px;
+    object-fit: contain;
+    border-radius: 4px;
+    filter: grayscale(100%) contrast(1.2);
+    opacity: 0.8;
+    transition: var(--transition-smooth);
+}
+
+.social-link:hover .social-icon-img {
+    filter: grayscale(0%) contrast(1);
+    opacity: 1;
 }
 
 .social-link:hover {
@@ -359,10 +371,13 @@ h1, h2, h3, h4 {
     object-position: center;
     border: none;
     background: transparent;
-    filter: grayscale(100%) contrast(1.1) brightness(1.05);
+    filter: grayscale(100%) contrast(1.35) brightness(0.85);
     z-index: 2;
     position: relative;
     transition: var(--transition-smooth);
+    /* Fade the bottom edge to blend seamlessly into black background */
+    -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
 }
 
 .hero-image-container:hover .hero-avatar {
