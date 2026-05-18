@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonas Joaquim | Portfolio</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portfolio de Jonas Joaquim - Desenvolvedor Front-End e Designer Visual especializado em criar interfaces digitais imersivas, limpas e de alta performance.">
+    <meta name="keywords" content="Jonas Joaquim, Front-end, Web Design, UI/UX, Portfólio, React, CSS, JavaScript, Web Developer">
+    <meta name="author" content="Jonas Joaquim">
+    
+    <!-- Google Fonts: Outfit (Display) & Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+
+    <!-- Custom Cursor Follower (Premium detail) -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Header / Navigation Pill -->
+    <header class="header">
+        <div class="logo">jj</div>
+        <div class="nav-container">
+            <nav class="nav-pill">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <span class="nav-indicator"></span>
+            </nav>
+        </div>
+        <button class="btn-talk" id="openTalkModal">Let's Talk</button>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <p class="hero-intro">I am Jonas Joaquim</p>
+                <h1 class="hero-title">Front-End<br>Developer & Designer</h1>
+                <p class="hero-subtitle">
+                    Blending thoughtful UI design with clean, responsive development to create websites that look great and perform flawlessly.
+                </p>
+                <div class="hero-actions">
+                    <a href="assets/cv.pdf" download class="btn-primary">
+                        <span>Download CV</span>
+                        <i data-lucide="download"></i>
+                    </a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link">
+                        <i data-lucide="linkedin"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-link">
+                        <i data-lucide="github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-image-area">
+                <div class="hero-image-container">
+                    <div class="hero-avatar-glow"></div>
+                    <img src="assets/avatar.png" alt="Jonas Joaquim Portrait" class="hero-avatar">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Designing clean scalable responsive websites</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Card 1: UI/UX Website Design -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i data-lucide="layout"></i></div>
+                        <h3 class="service-name">UI/UX Website Design</h3>
+                    </div>
+                    <p class="service-desc">
+                        Clean, user-focused layouts with clear structure, smooth navigation, and strong visual hierarchy.
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">Modern layouts</span>
+                        <span class="tag">Responsive design</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Frontend Development -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i data-lucide="code-2"></i></div>
+                        <h3 class="service-name">Frontend Development</h3>
+                    </div>
+                    <p class="service-desc">
+                        Responsive interfaces using HTML, CSS, and JavaScript for clean, consistent, reliable performance.
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">Clean HTML/CSS</span>
+                        <span class="tag">Smooth interactions</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Performance & Responsiveness -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i data-lucide="zap"></i></div>
+                        <h3 class="service-name">Performance & Responsiveness</h3>
+                    </div>
+                    <p class="service-desc">
+                        Fast, mobile-first websites optimized for speed, accessibility, and dependable performance.
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">Speed optimization</span>
+                        <span class="tag">Asset efficiency</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: WordPress Implementation -->
+                <div class="service-card">
+                    <div class="service-card-header">
+                        <div class="service-icon"><i data-lucide="globe"></i></div>
+                        <h3 class="service-name">WordPress Implementation</h3>
+                    </div>
+                    <p class="service-desc">
+                        Lightweight WordPress setups with easy updates, fast loading, and scalable, clean, customizable layouts.
+                    </p>
+                    <div class="service-tags">
+                        <span class="tag">Theme setup</span>
+                        <span class="tag">Easy management</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="about-intro">
+                    I'm a front-end developer and designer passionate about crafting clean, intuitive, and responsive digital experiences. I focus on turning ideas into seamless interfaces by understanding user needs, designing thoughtful UI layouts, and ensuring smooth interactions across devices.
+                </p>
+            </div>
+            
+            <div class="about-approach-area">
+                <h3 class="approach-title">My Approach</h3>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <span class="approach-num">01</span>
+                        <p class="approach-text">Understand users & goals</p>
+                    </div>
+                    <div class="approach-card">
+                        <span class="approach-num">02</span>
+                        <p class="approach-text">Create clean UI layouts</p>
+                    </div>
+                    <div class="approach-card">
+                        <span class="approach-num">03</span>
+                        <p class="approach-text">Responsive experiences</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-area">
+                <div class="stat-item">
+                    <span class="stat-num">02+</span>
+                    <span class="stat-label">Years Of Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">15+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-num">05+</span>
+                    <span class="stat-label">Clients Served</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+                <p class="section-subtitle">Crafting seamless UI/UX and clean code</p>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Bento 1: Core Skills -->
+                <div class="skills-card">
+                    <h3 class="skills-card-title">Core Skills</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">UI/UX Layout</span>
+                        <span class="skill-tag">Frontend Dev</span>
+                        <span class="skill-tag">Responsive Web Design</span>
+                        <span class="skill-tag">Component-Based Design</span>
+                    </div>
+                </div>
+
+                <!-- Bento 2: Frontend Tech -->
+                <div class="skills-card">
+                    <h3 class="skills-card-title">Frontend Tech</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">JS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">GSAP</span>
+                        <span class="skill-tag">Anime.js</span>
+                        <span class="skill-tag">WordPress</span>
+                    </div>
+                </div>
+
+                <!-- Bento 3: Design Tools -->
+                <div class="skills-card">
+                    <h3 class="skills-card-title">Design Tools</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Illustrator</span>
+                    </div>
+                </div>
+
+                <!-- Bento 4: Tools & Interaction -->
+                <div class="skills-card">
+                    <h3 class="skills-card-title">Tools & Interaction</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Netlify</span>
+                        <span class="skill-tag">Vercel</span>
+                        <span class="skill-tag">UI Interactions</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Premium Custom Showcase) -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Real-world commercial designs and immersive web hubs</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Union Trading -->
+                <article class="project-card">
+                    <div class="project-info">
+                        <span class="project-cat">B2B Trade Platform</span>
+                        <h3 class="project-name">Union International Trading</h3>
+                        <p class="project-desc">
+                            A high-end brutalist commercial portal featuring currency quotation tools, smooth animations, and a quotation submission suite.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind</span>
+                            <span class="tech-tag">GSAP</span>
+                        </div>
+                    </div>
+                    <div class="project-action">
+                        <a href="https://union-trading.vercel.app/" class="project-link" target="_blank">
+                            <span>Launch Portal</span>
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Project 2: Norden Watches -->
+                <article class="project-card">
+                    <div class="project-info">
+                        <span class="project-cat">Luxury Watch E-Commerce</span>
+                        <h3 class="project-name">Norden Watches</h3>
+                        <p class="project-desc">
+                            A highly crafted landing experience with scroll-driven watch animations, sleek product carousels, and visual details.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vite</span>
+                            <span class="tech-tag">HTML Canvas</span>
+                            <span class="tech-tag">ScrollTrigger</span>
+                        </div>
+                    </div>
+                    <div class="project-action">
+                        <a href="https://norden-watches.vercel.app/" class="project-link" target="_blank">
+                            <span>Launch Experience</span>
+                            <i data-lucide="arrow-up-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Let's Talk Overlay Modal -->
+    <div class="modal-overlay" id="talkModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeTalkModal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header">
+                <h2 class="modal-title">Let's build something great.</h2>
+                <p class="modal-subtitle">Leave your details and let's bring your creative visions to life.</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="contactName" required placeholder=" ">
+                    <label for="contactName">Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contactEmail" required placeholder=" ">
+                    <label for="contactEmail">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="contactSubject" required placeholder=" ">
+                    <label for="contactSubject">Subject</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="contactMessage" required placeholder=" " rows="4"></textarea>
+                    <label for="contactMessage">Message</label>
+                </div>
+                <button type="submit" class="btn-submit" id="btnSubmitForm">
+                    <span>Send Message</span>
+                    <i data-lucide="send" id="btnSubmitIcon"></i>
+                </button>
+            </form>
+            <div class="form-feedback" id="formFeedback"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Jonas Joaquim. All rights reserved.</p>
+        <p class="footer-design">Designed & Developed with Passion</p>
+    </footer>
+
+    <!-- App JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
