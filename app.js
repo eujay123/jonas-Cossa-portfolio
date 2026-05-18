@@ -251,10 +251,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const talkModal = document.getElementById('talkModal');
     const openTalkModal = document.getElementById('openTalkModal');
     const closeTalkModal = document.getElementById('closeTalkModal');
-    const contactForm = document.getElementById('contactForm');
-    const formFeedback = document.getElementById('formFeedback');
-    const btnSubmitForm = document.getElementById('btnSubmitForm');
-    const btnSubmitIcon = document.getElementById('btnSubmitIcon');
 
     const toggleModal = (show) => {
         if (show) {
@@ -307,52 +303,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleModal(false);
         }
     });
-
-    // Contact Form Submission Action
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Lock submit button
-            btnSubmitForm.disabled = true;
-            const originalBtnText = btnSubmitForm.querySelector('span').innerText;
-            btnSubmitForm.querySelector('span').innerText = 'Sending...';
-            
-            // Loading spinner swap in icon
-            if (btnSubmitIcon) {
-                btnSubmitIcon.setAttribute('data-lucide', 'loader-2');
-                btnSubmitIcon.classList.add('spinning'); // Add spinning animation
-                lucide.createIcons();
-            }
-
-            // Simulate server request delay
-            setTimeout(() => {
-                // Success feedback
-                formFeedback.innerText = 'Message sent successfully! Jonas will get back to you soon.';
-                formFeedback.className = 'form-feedback active success';
-                
-                // Clear inputs
-                contactForm.reset();
-                
-                // Reset button state
-                btnSubmitForm.disabled = false;
-                btnSubmitForm.querySelector('span').innerText = originalBtnText;
-                if (btnSubmitIcon) {
-                    btnSubmitIcon.setAttribute('data-lucide', 'send');
-                    btnSubmitIcon.classList.remove('spinning');
-                    lucide.createIcons();
-                }
-
-                // Hide success notification after 5 seconds
-                setTimeout(() => {
-                    formFeedback.className = 'form-feedback';
-                    formFeedback.innerText = '';
-                    toggleModal(false); // Autoclose modal
-                }, 4000);
-                
-            }, 1800);
-        });
-    }
 
     // ==========================================================================
     // MOBILE HAMBURGER MENU INTERACTIVITY
