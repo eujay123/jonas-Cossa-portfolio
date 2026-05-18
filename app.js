@@ -353,4 +353,80 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1800);
         });
     }
+
+    // ==========================================================================
+    // MOBILE HAMBURGER MENU INTERACTIVITY
+    // ==========================================================================
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    const openMobileMenu = () => {
+        mobileMenuBtn.classList.add('active');
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Lock background scroll
+    };
+
+    const closeMobileMenu = () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = ''; // Restore background scroll
+    };
+
+    const toggleMobileMenu = () => {
+        const isOpen = mobileMenuBtn.classList.contains('active');
+        if (isOpen) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    };
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+    }
+
+    // Close menu when clicking a link
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    // Close menu when clicking backdrop
+    if (mobileMenu) {
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // Scroll spy for mobile links
+    const mobileScrollSpy = () => {
+        let currentSectionId = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 180;
+            const sectionHeight = section.offsetHeight;
+            const scrollPos = window.scrollY;
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        if (currentSectionId) {
+            const targetMobileLink = document.querySelector(`.mobile-nav-link[href="#${currentSectionId}"]`);
+            if (targetMobileLink && !targetMobileLink.classList.contains('active')) {
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                targetMobileLink.classList.add('active');
+            }
+        }
+    };
+
+    window.addEventListener('scroll', mobileScrollSpy);
 });

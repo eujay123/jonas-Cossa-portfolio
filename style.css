@@ -123,7 +123,7 @@ h1, h2, h3, h4 {
     justify-content: space-between;
     align-items: center;
     padding: 0 8%;
-    z-index: 100;
+    z-index: 200;
     pointer-events: none;
 }
 
@@ -972,6 +972,121 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
+   MOBILE MENU & HAMBURGER SYSTEM
+   ========================================================================== */
+
+/* Hamburger Button Container */
+.hamburger-menu {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 150; /* Above header container so it's always interactive */
+    pointer-events: auto;
+    position: relative;
+}
+
+/* Three line hamburger bars */
+.hamburger-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 4px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease,
+                background-color 0.3s ease;
+}
+
+/* Active hamburger transitions to X */
+.hamburger-menu.active .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.5);
+}
+
+.hamburger-menu.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Glassmorphic Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    z-index: 140; /* Positioned below hamburger but above standard elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Mobile Nav Structure & Links */
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 20px;
+}
+
+.mobile-nav-link {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.mobile-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    color: var(--text-primary);
+    transform: scale(1.05);
+}
+
+.mobile-nav-link:hover::after,
+.mobile-nav-link.active::after {
+    width: 30px;
+    left: calc(50% - 15px);
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
 
@@ -1018,8 +1133,15 @@ h1, h2, h3, h4 {
         padding: 0 6%;
     }
     
-    .nav-pill {
-        display: none; /* In production, you would add a mobile hamburger menu */
+    .nav-container {
+        display: none;
+    }
+    
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .hero-title {
